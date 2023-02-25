@@ -6,7 +6,7 @@ resource "azurerm_servicebus_queue" "queue" {
   auto_delete_on_idle                     = var.auto_delete_on_idle
   default_message_ttl                     = var.default_message_ttl
   duplicate_detection_history_time_window = var.duplicate_detection_history_time_window
-  enable_batched_operations               = var.enabled_batched_operations
+  enable_batched_operations               = var.enable_batched_operations
   enable_express                          = var.enable_express
   max_message_size_in_kilobytes           = var.max_message_size_in_kilobytes
   max_size_in_megabytes                   = var.max_size_in_megabytes
