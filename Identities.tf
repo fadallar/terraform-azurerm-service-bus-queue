@@ -7,7 +7,7 @@ resource "azurerm_user_assigned_identity" "sb_data_receiver" {
 }
 
 resource "azurerm_role_assignment" "rbac_sb_data_receiver" {
-  scope                = azurerm_servicebus_topic.topic.id
+  scope                = azurerm_servicebus_queue.queue.id
   role_definition_name = "Azure Service Bus Data Receiver"
   principal_id         = azurerm_user_assigned_identity.sb_data_receiver.principal_id
 }
@@ -21,7 +21,7 @@ resource "azurerm_user_assigned_identity" "sb_data_sender" {
 }
 
 resource "azurerm_role_assignment" "rbac_sb_data_sender" {
-  scope                = azurerm_servicebus_queue.queue.name.id
+  scope                = azurerm_servicebus_queue.queue.id
   role_definition_name = "Azure Service Bus Data Sender"
   principal_id         = azurerm_user_assigned_identity.sb_data_sender.principal_id
 }
